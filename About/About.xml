@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>Vanilla Weapons Expanded - Heavy - Reloading Patch</name>
+    <author>legodude17</author>
+    <url></url>
+    <description>Changes the heavy weapons added by Vanilla Weapons Expanded - Heavy to use reloading with resources rather than a durability system.</description>
+    <packageId>legodude17.heavyweaponsreloading</packageId>
+    <supportedVersions>
+        <li>1.2</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            <packageId>VanillaExpanded.VWEHW</packageId>
+            <displayName>Vanilla Weapons Expanded - Heavy Weapons</displayName>
+            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2329126791</steamWorkshopUrl>
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>VanillaExpanded.VWEHW</li>
+    </loadAfter>
+</ModMetaData>
