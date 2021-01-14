@@ -19,13 +19,12 @@ namespace WeaponReloading
         {
             if (!CanReloadFrom(ammo)) return;
             var shotsToFill = ShotsToReload(ammo);
-            ammo.SplitOff(shotsToFill * Props.ItemsPerShot);
+            ammo.SplitOff(shotsToFill * Props.ItemsPerShot).Destroy();
             ShotsRemaining += shotsToFill;
         }
 
         public virtual int ReloadTicks(Thing ammo)
         {
-            Log.Message("ammo: " + ammo);
             return ammo == null ? 0 : (Props.ReloadTimePerShot * ShotsToReload(ammo)).SecondsToTicks();
         }
 
@@ -41,6 +40,8 @@ namespace WeaponReloading
 
         public virtual bool CanReloadFrom(Thing ammo)
         {
+            // Log.Message(ammo + " x" + ammo.stackCount);
+            if (ammo == null) return false;
             return Props.AmmoFilter.Allows(ammo) && ammo.stackCount >= Props.ItemsPerShot;
         }
 

@@ -58,11 +58,11 @@
                 <MaxShots>20</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
-                        <li>Chemfuel</li>
+                        <li>Shell_HighExplosive</li>
                     </thingDefs>
                 </AmmoFilter>
-                <ItemsPerShot>50</ItemsPerShot>
-                <ReloadTimePerShot>0.2</ReloadTimePerShot>
+                <ItemsPerShot>1</ItemsPerShot>
+                <ReloadTimePerShot>1.2</ReloadTimePerShot>
             </li>
         </value>
     </Operation>

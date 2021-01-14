@@ -60,7 +60,7 @@ namespace WeaponReloading
                 initAction = () => reloadTicks = comp.ReloadTicks(pawn.carryTracker.CarriedThing),
                 tickAction = () =>
                 {
-                    Log.Message(debugTicksSpentThisToil + " / " + reloadTicks);
+                    // Log.Message(debugTicksSpentThisToil + " / " + reloadTicks);
                     if (debugTicksSpentThisToil >= reloadTicks) JumpToToil(done);
                 }
             };

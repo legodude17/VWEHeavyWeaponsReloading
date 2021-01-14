@@ -28,8 +28,9 @@ namespace WeaponReloading
                     foreach (var thing in c.GetThingList(pawn.Map))
                         if (comp.CanReloadFrom(thing))
                         {
-                            string text = "Reload".Translate(comp.parent.Named("GEAR"),
-                                thing.def.Named("AMMO") + " (" + comp.ShotsRemaining + ")");
+                            var text = "Reload".Translate(comp.parent.Named("GEAR"),
+                                           thing.def.Named("AMMO")) + " (" + comp.ShotsRemaining + "/" +
+                                       comp.Props.MaxShots + ")";
                             var failed = false;
                             var ammo = new List<Thing>();
                             if (!pawn.CanReach(thing, PathEndMode.ClosestTouch, Danger.Deadly))
@@ -84,7 +85,7 @@ namespace WeaponReloading
                 else if (comp.ShotsRemaining < verb.verbProps.burstShotCount)
                     command.Disable("CommandReload_NoAmmo".Translate("ammo".Named("CHARGENOUN"),
                         comp.Props.AmmoFilter.AnyAllowedDef.Named("AMMO"),
-                        (comp.Props.MaxShots - comp.ShotsRemaining).Named("COUNT")));
+                        ((comp.Props.MaxShots - comp.ShotsRemaining) * comp.Props.ItemsPerShot).Named("COUNT")));
 
                 __result = command;
 

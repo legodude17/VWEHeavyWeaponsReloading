@@ -27,7 +27,8 @@ namespace WeaponReloading
         {
             var job = JobMaker.MakeJob(ReloadDefOf.ReloadWeapon, comp.parent);
             job.targetQueueB = ammo.Select(t => new LocalTargetInfo(t)).ToList();
-            job.count = Math.Min(ammo.Sum(t => t.stackCount), comp.Props.MaxShots - comp.ShotsRemaining);
+            job.count = Math.Min(ammo.Sum(t => t.stackCount),
+                comp.Props.ItemsPerShot * (comp.Props.MaxShots - comp.ShotsRemaining));
             return job;
         }
 
