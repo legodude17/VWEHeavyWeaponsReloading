@@ -16,7 +16,6 @@ namespace WeaponReloading
 
         public WeaponReloadingMod(ModContentPack content) : base(content)
         {
-            Harmony.DEBUG = true;
             var harm = new Harmony("legodude17.weaponreloading");
             harm.Patch(
                 AccessTools.Method(typeof(FloatMenuMakerMap), "AddHumanlikeOrders"),
