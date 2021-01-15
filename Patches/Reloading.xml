@@ -46,8 +46,8 @@
                         <li>Chemfuel</li>
                     </thingDefs>
                 </AmmoFilter>
-                <ItemsPerShot>25</ItemsPerShot>
-                <ReloadTimePerShot>2</ReloadTimePerShot>
+                <ItemsPerShot>8</ItemsPerShot>
+                <ReloadTimePerShot>3</ReloadTimePerShot>
             </li>
         </value>
     </Operation>
@@ -58,7 +58,7 @@
                 <MaxShots>20</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
-                        <li>Shell_HighExplosive</li>
+                        <li>VWEHR_SwarmMissileAmmo</li>
                     </thingDefs>
                 </AmmoFilter>
                 <ItemsPerShot>1</ItemsPerShot>
@@ -76,7 +76,7 @@
                         <li>Uranium</li>
                     </thingDefs>
                 </AmmoFilter>
-                <ItemsPerShot>10</ItemsPerShot>
+                <ItemsPerShot>4</ItemsPerShot>
                 <ReloadTimePerShot>3</ReloadTimePerShot>
             </li>
         </value>
