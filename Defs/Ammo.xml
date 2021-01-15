@@ -20,6 +20,13 @@
             <li>RocketAmmo</li>
         </thingCategories>
         <tradeTags Inherit="False" />
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>2.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+            </li>
+        </comps>
     </ThingDef>
 
     <ThingCategoryDef>
