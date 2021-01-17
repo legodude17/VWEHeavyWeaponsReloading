@@ -8,7 +8,7 @@
             <texPath>VWEHR_SwarmMissileAmmo</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
         </graphicData>
-        <stackLimit>40</stackLimit>
+        <stackLimit>25</stackLimit>
         <costList>
             <Steel>10</Steel>
             <Chemfuel>5</Chemfuel>
