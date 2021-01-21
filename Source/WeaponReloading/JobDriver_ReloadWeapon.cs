@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -54,14 +53,16 @@ namespace WeaponReloading
             var reloadTicks = 0;
             var toil = new Toil
             {
-                finishActions = new List<Action> {() => comp.Reload(pawn.carryTracker.CarriedThing)},
                 defaultCompleteMode = ToilCompleteMode.Never,
                 defaultDuration = comp.Props.ReloadTimePerShot.SecondsToTicks(),
-                initAction = () => reloadTicks = comp.ReloadTicks(pawn.carryTracker.CarriedThing),
+                initAction = () => { reloadTicks = comp.ReloadTicks(pawn.carryTracker.CarriedThing); },
                 tickAction = () =>
                 {
-                    // Log.Message(debugTicksSpentThisToil + " / " + reloadTicks);
-                    if (debugTicksSpentThisToil >= reloadTicks) JumpToToil(done);
+                    if (debugTicksSpentThisToil >= reloadTicks)
+                    {
+                        comp.Reload(pawn.carryTracker.CarriedThing);
+                        JumpToToil(done);
+                    }
                 }
             };
             toil.WithProgressBar(TargetIndex.A, () => (float) debugTicksSpentThisToil / (float) reloadTicks);

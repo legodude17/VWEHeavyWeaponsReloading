@@ -7,5 +7,6 @@ namespace WeaponReloading
     public class ReloadDefOf
     {
         public static JobDef ReloadWeapon;
+        public static JobDef ReloadWeaponFromInventory;
     }
 }

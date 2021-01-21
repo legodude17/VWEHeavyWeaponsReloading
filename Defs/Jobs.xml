@@ -7,4 +7,11 @@
         <suspendable>false</suspendable>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
+    <JobDef>
+        <defName>ReloadWeaponFromInventory</defName>
+        <driverClass>WeaponReloading.JobDriver_ReloadFromInventory</driverClass>
+        <reportString>reloading TargetA.</reportString>
+        <suspendable>false</suspendable>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
 </Defs>

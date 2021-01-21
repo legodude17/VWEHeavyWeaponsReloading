@@ -22,14 +22,12 @@ namespace WeaponReloading
                 postfix: new HarmonyMethod(AccessTools.Method(GetType(), "AddWeaponReloadOrders")));
             harm.Patch(AccessTools.Method(typeof(VerbTracker), "CreateVerbTargetCommand"),
                 new HarmonyMethod(AccessTools.Method(GetType(), "CreateReloadableVerbTargetCommand")));
-            var cls = typeof(JobDriver_AttackStatic);
-            var cls2 = cls.GetNestedType("<>c__DisplayClass4_0", BindingFlags.NonPublic);
-            var prop = cls2.GetField("<>4__this", BindingFlags.Public | BindingFlags.Instance);
-            thisPropertyInfo = prop;
-            var cls3 = cls.GetNestedType("<MakeNewToils>d__4", BindingFlags.NonPublic);
-            var method = cls2.GetMethod("<MakeNewToils>b__1", BindingFlags.NonPublic | BindingFlags.Instance);
-            harm.Patch(method,
+            var type = typeof(JobDriver_AttackStatic).GetNestedType("<>c__DisplayClass4_0", BindingFlags.NonPublic);
+            thisPropertyInfo = type.GetField("<>4__this", BindingFlags.Public | BindingFlags.Instance);
+            harm.Patch(type.GetMethod("<MakeNewToils>b__1", BindingFlags.NonPublic | BindingFlags.Instance),
                 transpiler: new HarmonyMethod(AccessTools.Method(GetType(), "EndJobIfVerbNotAvailable")));
+            harm.Patch(AccessTools.Method(typeof(Stance_Busy), "Expire"),
+                postfix: new HarmonyMethod(GetType(), "ReloadWeaponIfEndingCooldown"));
             Log.Message("Applied patches for " + harm.Id);
         }
 
@@ -142,6 +140,29 @@ namespace WeaponReloading
             return verb.IsMeleeAttack
                 ? verb.CanHitTargetFrom(pawn.Position, verb.CurrentTarget)
                 : verb.IsStillUsableBy(pawn);
+        }
+
+        public static void ReloadWeaponIfEndingCooldown(Stance_Busy __instance)
+        {
+            if (__instance.verb?.EquipmentSource == null) return;
+            var pawn = __instance.verb.CasterPawn;
+            if (pawn == null) return;
+            var comp = __instance.verb.EquipmentSource.TryGetComp<CompReloadableWeapon>();
+            if (comp == null || comp.ShotsRemaining != 0 || pawn.CurJobDef != JobDefOf.AttackStatic ||
+                pawn.stances.curStance.StanceBusy) return;
+
+            var item = pawn.inventory.innerContainer.FirstOrDefault(t => comp.CanReloadFrom(t));
+
+            if (item == null) return;
+
+            var job = new Job(JobDefOf.AttackStatic, pawn.CurJob.targetA);
+            job.canUseRangedWeapon = true;
+            job.verbToUse = __instance.verb;
+            job.endIfCantShootInMelee = true;
+            pawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
+            pawn.jobs.TryTakeOrderedJob_NewTemp(JobGiver_ReloadFromInventory.MakeReloadJob(comp, item),
+                requestQueueing: true);
+            pawn.jobs.TryTakeOrderedJob_NewTemp(job, JobTag.DraftedOrder, true);
         }
     }
 }
