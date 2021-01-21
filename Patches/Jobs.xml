@@ -7,4 +7,11 @@
             <li Class="WeaponReloading.JobGiver_ReloadWeapon" />
         </value>
     </Operation>
+    <Operation Class="PatchOperationInsert">
+        <order>Prepend</order>
+        <xpath>/Defs/DutyDef/thinkNode/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+        <value>
+            <li Class="WeaponReloading.JobGiver_ReloadFromInventory" />
+        </value>
+    </Operation>
 </Patch>

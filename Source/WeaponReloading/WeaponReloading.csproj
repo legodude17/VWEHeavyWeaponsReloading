@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Command_ReloadableWeapon.cs" />
     <Compile Include="CompReloadableWeapon.cs" />
+    <Compile Include="GenerateWithAmmo.cs" />
     <Compile Include="JobDriver_ReloadFromInventory.cs" />
     <Compile Include="JobDriver_ReloadWeapon.cs" />
     <Compile Include="JobGiver_ReloadFromInventory.cs" />

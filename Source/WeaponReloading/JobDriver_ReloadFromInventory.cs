@@ -28,6 +28,7 @@ namespace WeaponReloading
             {
                 initAction = () =>
                 {
+                    pawn.pather.StopDead();
                     var item = job.targetB.Thing;
                     pawn.inventory.innerContainer.TryTransferToContainer(item, pawn.carryTracker.innerContainer,
                         job.count);

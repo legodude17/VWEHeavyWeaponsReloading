@@ -28,6 +28,8 @@ namespace WeaponReloading
                 transpiler: new HarmonyMethod(AccessTools.Method(GetType(), "EndJobIfVerbNotAvailable")));
             harm.Patch(AccessTools.Method(typeof(Stance_Busy), "Expire"),
                 postfix: new HarmonyMethod(GetType(), "ReloadWeaponIfEndingCooldown"));
+            harm.Patch(AccessTools.Method(typeof(PawnInventoryGenerator), "GenerateInventoryFor"),
+                postfix: new HarmonyMethod(GetType(), "GenerateAdditionalAmmo"));
             Log.Message("Applied patches for " + harm.Id);
         }
 
@@ -148,8 +150,7 @@ namespace WeaponReloading
             var pawn = __instance.verb.CasterPawn;
             if (pawn == null) return;
             var comp = __instance.verb.EquipmentSource.TryGetComp<CompReloadableWeapon>();
-            if (comp == null || comp.ShotsRemaining != 0 || pawn.CurJobDef != JobDefOf.AttackStatic ||
-                pawn.stances.curStance.StanceBusy) return;
+            if (comp == null || comp.ShotsRemaining != 0 || pawn.stances.curStance.StanceBusy) return;
 
             var item = pawn.inventory.innerContainer.FirstOrDefault(t => comp.CanReloadFrom(t));
 
@@ -161,8 +162,34 @@ namespace WeaponReloading
             job.endIfCantShootInMelee = true;
             pawn.jobs.EndCurrentJob(JobCondition.InterruptForced);
             pawn.jobs.TryTakeOrderedJob_NewTemp(JobGiver_ReloadFromInventory.MakeReloadJob(comp, item),
-                requestQueueing: true);
+                requestQueueing: false);
             pawn.jobs.TryTakeOrderedJob_NewTemp(job, JobTag.DraftedOrder, true);
+        }
+
+        public static void GenerateAdditionalAmmo(Pawn p)
+        {
+            if (p.equipment?.Primary == null) return;
+            if (!p.equipment.Primary.def.HasModExtension<GenerateWithAmmo>()) return;
+            var ext = p.equipment.Primary.def.GetModExtension<GenerateWithAmmo>();
+            foreach (var cc in ext.min)
+            {
+                var max = ext.max.Find(tdcc => tdcc.thingDef == cc.thingDef);
+                var count = 0;
+                if (max == null)
+                {
+                    Log.Warning(p.equipment.Primary.def.label + " has min number of " + cc.thingDef.label +
+                                " but no max. This is not recommended.");
+                    count = cc.count;
+                }
+                else
+                {
+                    count = new IntRange(cc.count, max.count).RandomInRange;
+                }
+
+                var t = ThingMaker.MakeThing(cc.thingDef);
+                t.stackCount = count;
+                p.inventory.innerContainer.TryAdd(t);
+            }
         }
     }
 }
