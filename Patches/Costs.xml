@@ -15,8 +15,7 @@
         <value>
             <costList>
                 <Steel>70</Steel>
-                <ComponentIndustrial>3</ComponentIndustrial>
-                <Shell_HighExplosive>5</Shell_HighExplosive>
+                <ComponentIndustrial>4</ComponentIndustrial>
             </costList>
         </value>
     </Operation>

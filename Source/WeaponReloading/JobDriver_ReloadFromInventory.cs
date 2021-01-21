@@ -40,7 +40,7 @@ namespace WeaponReloading
                 {
                     if (debugTicksSpentThisToil >= reloadTicks)
                     {
-                        comp.Reload(pawn.carryTracker.CarriedThing);
+                        comp.Reload(pawn.carryTracker.CarriedThing)?.Destroy();
                         JumpToToil(done);
                     }
                 }

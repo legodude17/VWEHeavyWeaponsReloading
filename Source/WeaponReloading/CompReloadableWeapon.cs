@@ -15,12 +15,12 @@ namespace WeaponReloading
             ShotsRemaining = Props.MaxShots;
         }
 
-        public virtual void Reload(Thing ammo)
+        public virtual Thing Reload(Thing ammo)
         {
-            if (!CanReloadFrom(ammo)) return;
+            if (!CanReloadFrom(ammo)) return null;
             var shotsToFill = ShotsToReload(ammo);
-            ammo.SplitOff(shotsToFill * Props.ItemsPerShot).Destroy();
             ShotsRemaining += shotsToFill;
+            return ammo.SplitOff(shotsToFill * Props.ItemsPerShot);
         }
 
         public virtual int ReloadTicks(Thing ammo)
@@ -55,6 +55,11 @@ namespace WeaponReloading
             base.PostExposeData();
             Scribe_Values.Look(ref ShotsRemaining, "ShotsRemaining");
         }
+
+        public virtual void Notify_ProjectileFired()
+        {
+            ShotsRemaining--;
+        }
     }
 
     public class CompProperties_ReloadableWeapon : CompProperties
@@ -66,7 +71,7 @@ namespace WeaponReloading
 
         public CompProperties_ReloadableWeapon()
         {
-            compClass = typeof(CompReloadableWeapon);
+            compClass = compClass ?? typeof(CompReloadableWeapon);
         }
 
         public override void ResolveReferences(ThingDef parentDef)

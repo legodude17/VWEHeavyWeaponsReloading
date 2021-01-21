@@ -18,6 +18,7 @@ namespace WeaponReloading
         {
             var comp = FindAnyReloadableWeapon(pawn);
             if (comp == null) return null;
+            if (comp is CompChangeableWeaponAmmo) return null;
             if (!comp.NeedsReload()) return null;
             var list = FindAmmo(pawn, pawn.Position, comp);
             return list.NullOrEmpty() ? null : MakeReloadJob(comp, list);

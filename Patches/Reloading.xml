@@ -25,11 +25,12 @@
         <xpath>/Defs/ThingDef[defName="VWE_Gun_HandheldMortar"]/comps</xpath>
         <value>
             <li Class="WeaponReloading.CompProperties_ReloadableWeapon">
+                <compClass>WeaponReloading.CompChangeableWeaponAmmo</compClass>
                 <MaxShots>5</MaxShots>
                 <AmmoFilter>
-                    <thingDefs>
-                        <li>Shell_HighExplosive</li>
-                    </thingDefs>
+                    <categories>
+                        <li>MortarShells</li>
+                    </categories>
                 </AmmoFilter>
                 <ItemsPerShot>1</ItemsPerShot>
                 <ReloadTimePerShot>5</ReloadTimePerShot>

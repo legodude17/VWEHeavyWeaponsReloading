@@ -77,6 +77,7 @@ namespace WeaponReloading
             if (verb is Verb_ShootReloadable verbReloadable)
             {
                 var comp = ownerThing.TryGetComp<CompReloadableWeapon>();
+                if (comp == null) return true;
                 var command = new Command_ReloadableWeapon(comp)
                 {
                     defaultDesc = ownerThing.LabelCap + ": " + ownerThing.def.description.CapitalizeFirst(),
