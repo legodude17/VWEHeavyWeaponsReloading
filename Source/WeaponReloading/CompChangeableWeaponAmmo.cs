@@ -37,9 +37,13 @@ namespace WeaponReloading
         public override void Notify_ProjectileFired()
         {
             base.Notify_ProjectileFired();
-            loadedAmmo.Remove(nextAmmoItem);
-            nextAmmoItem.Destroy();
-            nextAmmoItem = loadedAmmo.FirstOrFallback();
+            nextAmmoItem.stackCount--;
+            if (nextAmmoItem.stackCount == 0)
+            {
+                loadedAmmo.Remove(nextAmmoItem);
+                nextAmmoItem.Destroy();
+                nextAmmoItem = loadedAmmo.FirstOrFallback();
+            }
         }
 
         public override void Initialize(CompProperties props)
