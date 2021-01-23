@@ -12,7 +12,7 @@
     <Operation Class="PatchOperationReplace">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_HandheldMortar"]/description</xpath>
         <value>
-            <description>Mortar launcher. Lobs bombs over walls. Very inaccurate but long-ranged. It's slow to aim and it cannot fire at close-up targets.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nHas limited magazine of 5 shells and must be reloaded with high explosive shells.</description>
+            <description>Mortar launcher. Lobs bombs over walls. Very inaccurate but long-ranged. It's slow to aim and it cannot fire at close-up targets.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nHas limited magazine of 5 shells and must be reloaded with mortar shells.</description>
             <descriptionHyperlinks>
                 <ThingDef>Shell_HighExplosive</ThingDef>
             </descriptionHyperlinks>
