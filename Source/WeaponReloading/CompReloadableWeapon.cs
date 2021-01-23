@@ -69,11 +69,6 @@ namespace WeaponReloading
         public int MaxShots;
         public float ReloadTimePerShot;
 
-        public CompProperties_ReloadableWeapon()
-        {
-            compClass = compClass ?? typeof(CompReloadableWeapon);
-        }
-
         public override void ResolveReferences(ThingDef parentDef)
         {
             base.ResolveReferences(parentDef);

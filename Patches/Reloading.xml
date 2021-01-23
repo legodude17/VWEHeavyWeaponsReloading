@@ -10,6 +10,7 @@
         <xpath>/Defs/ThingDef[defName="VWE_Gun_Autocannon"]/comps</xpath>
         <value>
             <li Class="WeaponReloading.CompProperties_ReloadableWeapon">
+                <compClass>WeaponReloading.CompReloadableWeapon</compClass>
                 <MaxShots>84</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
@@ -41,6 +42,7 @@
         <xpath>/Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]/comps</xpath>
         <value>
             <li Class="WeaponReloading.CompProperties_ReloadableWeapon">
+                <compClass>WeaponReloading.CompReloadableWeapon</compClass>
                 <MaxShots>10</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
@@ -56,6 +58,7 @@
         <xpath>/Defs/ThingDef[defName="VWE_Gun_SwarmMissileLauncher"]/comps</xpath>
         <value>
             <li Class="WeaponReloading.CompProperties_ReloadableWeapon">
+                <compClass>WeaponReloading.CompReloadableWeapon</compClass>
                 <MaxShots>20</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
@@ -70,7 +73,7 @@
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]/comps</xpath>
         <value>
-            <li Class="WeaponReloading.CompProperties_ReloadableWeapon">
+            <li Class="WeaponReloading.CompProperties_ReloadableWeapon"><compClass>WeaponReloading.CompReloadableWeapon</compClass>
                 <MaxShots>10</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
