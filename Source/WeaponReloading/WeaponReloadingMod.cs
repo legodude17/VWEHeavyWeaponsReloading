@@ -36,6 +36,7 @@ namespace WeaponReloading
         public static void AddWeaponReloadOrders(List<FloatMenuOption> opts, Vector3 clickPos, Pawn pawn)
         {
             var c = IntVec3.FromVector3(clickPos);
+
             foreach (var eq in pawn.equipment.AllEquipmentListForReading)
                 if (eq.TryGetComp<CompReloadableWeapon>() is CompReloadableWeapon comp)
                     foreach (var thing in c.GetThingList(pawn.Map))
@@ -68,6 +69,29 @@ namespace WeaponReloading
                                     new FloatMenuOption(text,
                                         () => pawn.jobs.TryTakeOrderedJob(
                                             JobGiver_ReloadWeapon.MakeReloadJob(comp, ammo))), pawn, thing));
+                        }
+                        else if (thing == pawn)
+                        {
+                            foreach (var item in pawn.inventory.innerContainer)
+                                if (comp.CanReloadFrom(item))
+                                {
+                                    var text = "Reload".Translate(comp.parent.Named("GEAR"),
+                                                   item.def.Named("AMMO")) + " (" + comp.ShotsRemaining + "/" +
+                                               comp.Props.MaxShots + ")";
+                                    if (!comp.NeedsReload())
+                                    {
+                                        Log.Message("Don't need to reload!");
+                                        opts.Add(new FloatMenuOption(text + ": " + "ReloadFull".Translate(), null));
+                                    }
+                                    else
+                                    {
+                                        Log.Message("Creating menu!");
+                                        opts.Add(
+                                            new FloatMenuOption(text,
+                                                () => pawn.jobs.TryTakeOrderedJob(
+                                                    JobGiver_ReloadFromInventory.MakeReloadJob(comp, item))));
+                                    }
+                                }
                         }
         }
 
