@@ -37,6 +37,23 @@ namespace WeaponReloading
         {
             var c = IntVec3.FromVector3(clickPos);
 
+            foreach (var thing in c.GetThingList(pawn.Map))
+                if (thing.TryGetComp<CompReloadableWeapon>() is CompReloadableWeapon comp)
+                {
+                    var text = "UnloadWeapon".Translate(comp.parent.Named("GEAR")) + " (" + comp.ShotsRemaining + "/" +
+                               comp.Props.MaxShots + ")";
+                    if (comp.ShotsRemaining == 0)
+                    {
+                        text += ": " + "Reloading.NoAmmo".Translate();
+                        opts.Add(new FloatMenuOption(text, null));
+                    }
+                    else
+                    {
+                        opts.Add(new FloatMenuOption(text,
+                            () => pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(ReloadDefOf.UnloadWeapon, thing))));
+                    }
+                }
+
             foreach (var eq in pawn.equipment.AllEquipmentListForReading)
                 if (eq.TryGetComp<CompReloadableWeapon>() is CompReloadableWeapon comp)
                     foreach (var thing in c.GetThingList(pawn.Map))
@@ -79,18 +96,12 @@ namespace WeaponReloading
                                                    item.def.Named("AMMO")) + " (" + comp.ShotsRemaining + "/" +
                                                comp.Props.MaxShots + ")";
                                     if (!comp.NeedsReload())
-                                    {
-                                        Log.Message("Don't need to reload!");
                                         opts.Add(new FloatMenuOption(text + ": " + "ReloadFull".Translate(), null));
-                                    }
                                     else
-                                    {
-                                        Log.Message("Creating menu!");
                                         opts.Add(
                                             new FloatMenuOption(text,
                                                 () => pawn.jobs.TryTakeOrderedJob(
                                                     JobGiver_ReloadFromInventory.MakeReloadJob(comp, item))));
-                                    }
                                 }
                         }
         }

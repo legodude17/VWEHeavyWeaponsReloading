@@ -58,5 +58,12 @@ namespace WeaponReloading
             loadedAmmo.ExposeData();
             Scribe_References.Look(ref nextAmmoItem, "nextLoadedItem");
         }
+
+        public override void Unload()
+        {
+            loadedAmmo.TryDropAll(parent.Position, parent.Map, ThingPlaceMode.Near);
+            nextAmmoItem = null;
+            ShotsRemaining = 0;
+        }
     }
 }

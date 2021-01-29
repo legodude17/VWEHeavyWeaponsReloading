@@ -8,5 +8,6 @@ namespace WeaponReloading
     {
         public static JobDef ReloadWeapon;
         public static JobDef ReloadWeaponFromInventory;
+        public static JobDef UnloadWeapon;
     }
 }

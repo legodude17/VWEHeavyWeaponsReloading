@@ -14,4 +14,11 @@
         <suspendable>false</suspendable>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
+    <JobDef>
+        <defName>UnloadWeapon</defName>
+        <driverClass>WeaponReloading.JobDriver_Unload</driverClass>
+        <reportString>unloading TargetA.</reportString>
+        <suspendable>false</suspendable>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
 </Defs>

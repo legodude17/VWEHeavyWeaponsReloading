@@ -2,11 +2,14 @@
 using RimWorld;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace WeaponReloading
 {
     public class JobDriver_ReloadWeapon : JobDriver
     {
+        private Sustainer reloadSound;
+
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
             pawn.ReserveAsManyAsPossible(job.GetTargetQueue(TargetIndex.B), job);
@@ -55,7 +58,11 @@ namespace WeaponReloading
             {
                 defaultCompleteMode = ToilCompleteMode.Never,
                 defaultDuration = comp.Props.ReloadTimePerShot.SecondsToTicks(),
-                initAction = () => { reloadTicks = comp.ReloadTicks(pawn.carryTracker.CarriedThing); },
+                initAction = () =>
+                {
+                    reloadTicks = comp.ReloadTicks(pawn.carryTracker.CarriedThing);
+                    reloadSound = null;
+                },
                 tickAction = () =>
                 {
                     if (debugTicksSpentThisToil >= reloadTicks)
@@ -63,11 +70,17 @@ namespace WeaponReloading
                         comp.Reload(pawn.carryTracker.CarriedThing)?.Destroy();
                         JumpToToil(done);
                     }
+
+                    if (debugTicksSpentThisToil == reloadTicks - 2f.SecondsToTicks())
+                        comp.Props.ReloadSound?.PlayOneShot(pawn);
+
+                    reloadSound?.Maintain();
                 }
             };
             toil.WithProgressBar(TargetIndex.A, () => (float) debugTicksSpentThisToil / (float) reloadTicks);
             yield return toil;
             yield return done;
+            yield return Toils_General.Do(() => reloadSound?.End());
         }
 
         public static Pawn GetHolder(Thing thing)

@@ -60,6 +60,21 @@ namespace WeaponReloading
         {
             ShotsRemaining--;
         }
+
+        public virtual void Unload()
+        {
+            var thing = ThingMaker.MakeThing(Props.AmmoFilter.AnyAllowedDef);
+            thing.stackCount = ShotsRemaining;
+            ShotsRemaining = 0;
+            GenPlace.TryPlaceThing(thing, parent.Position, parent.Map, ThingPlaceMode.Near);
+        }
+
+        public override string CompInspectStringExtra()
+        {
+            return base.CompInspectStringExtra() + (ShotsRemaining == 0
+                ? "Reloading.NoAmmo".Translate()
+                : "Reloading.Ammo".Translate(ShotsRemaining, Props.MaxShots));
+        }
     }
 
     public class CompProperties_ReloadableWeapon : CompProperties
@@ -67,6 +82,7 @@ namespace WeaponReloading
         public ThingFilter AmmoFilter;
         public int ItemsPerShot;
         public int MaxShots;
+        public SoundDef ReloadSound;
         public float ReloadTimePerShot;
 
         public override void ResolveReferences(ThingDef parentDef)
