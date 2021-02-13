@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <JobDef>
-        <defName>ReloadWeapon</defName>
-        <driverClass>WeaponReloading.JobDriver_ReloadWeapon</driverClass>
+        <defName>BetterReload</defName>
+        <driverClass>Reloading.JobDriver_Reload</driverClass>
         <reportString>reloading TargetA.</reportString>
         <suspendable>false</suspendable>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
     <JobDef>
-        <defName>ReloadWeaponFromInventory</defName>
-        <driverClass>WeaponReloading.JobDriver_ReloadFromInventory</driverClass>
+        <defName>ReloadFromInventory</defName>
+        <driverClass>Reloading.JobDriver_ReloadFromInventory</driverClass>
         <reportString>reloading TargetA.</reportString>
         <suspendable>false</suspendable>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
     </JobDef>
     <JobDef>
-        <defName>UnloadWeapon</defName>
-        <driverClass>WeaponReloading.JobDriver_Unload</driverClass>
+        <defName>Unload</defName>
+        <driverClass>Reloading.JobDriver_Unload</driverClass>
         <reportString>unloading TargetA.</reportString>
         <suspendable>false</suspendable>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>

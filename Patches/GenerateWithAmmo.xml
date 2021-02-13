@@ -3,7 +3,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_Autocannon"]</xpath>
         <value>
-            <li Class="WeaponReloading.GenerateWithAmmo">
+            <li Class="Reloading.GenerateWithAmmo">
                 <min>
                     <Steel>84</Steel>
                 </min>
@@ -16,7 +16,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_HandheldMortar"]</xpath>
         <value>
-            <li Class="WeaponReloading.GenerateWithAmmo">
+            <li Class="Reloading.GenerateWithAmmo">
                 <min>
                     <Shell_HighExplosive>5</Shell_HighExplosive>
                 </min>
@@ -29,7 +29,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]</xpath>
         <value>
-            <li Class="WeaponReloading.GenerateWithAmmo">
+            <li Class="Reloading.GenerateWithAmmo">
                 <min>
                     <Chemfuel>80</Chemfuel>
                 </min>
@@ -42,7 +42,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_SwarmMissileLauncher"]</xpath>
         <value>
-            <li Class="WeaponReloading.GenerateWithAmmo">
+            <li Class="Reloading.GenerateWithAmmo">
                 <min>
                     <VWEHR_SwarmMissileAmmo>20</VWEHR_SwarmMissileAmmo>
                 </min>
@@ -55,7 +55,7 @@
     <Operation Class="PatchOperationAddModExtension">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]</xpath>
         <value>
-            <li Class="WeaponReloading.GenerateWithAmmo">
+            <li Class="Reloading.GenerateWithAmmo">
                 <min>
                     <Uranium>40</Uranium>
                 </min>
