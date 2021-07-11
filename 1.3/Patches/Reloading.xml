@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_Autocannon"]/comps</xpath>
+        <value>
+            <li Class="Reloading.CompProperties_Reloadable">
+                <compClass>Reloading.CompReloadable</compClass>
+                <MaxShots>84</MaxShots>
+                <AmmoFilter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </AmmoFilter>
+                <ItemsPerShot>1</ItemsPerShot>
+                <ReloadTimePerShot>0.5</ReloadTimePerShot>
+                <ReloadSound>ReloadWeapon</ReloadSound>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_HandheldMortar"]/comps</xpath>
+        <value>
+            <li Class="Reloading.CompProperties_Reloadable">
+                <compClass>Reloading.CompChangeableAmmo</compClass>
+                <MaxShots>5</MaxShots>
+                <AmmoFilter>
+                    <categories>
+                        <li>MortarShells</li>
+                    </categories>
+                </AmmoFilter>
+                <ItemsPerShot>1</ItemsPerShot>
+                <ReloadTimePerShot>5</ReloadTimePerShot>
+                <ReloadSound>ReloadWeapon</ReloadSound>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]/comps</xpath>
+        <value>
+            <li Class="Reloading.CompProperties_Reloadable">
+                <compClass>Reloading.CompReloadable</compClass>
+                <MaxShots>10</MaxShots>
+                <AmmoFilter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </AmmoFilter>
+                <ItemsPerShot>8</ItemsPerShot>
+                <ReloadTimePerShot>3</ReloadTimePerShot>
+                <ReloadSound>ReloadWeapon</ReloadSound>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_SwarmMissileLauncher"]/comps</xpath>
+        <value>
+            <li Class="Reloading.CompProperties_Reloadable">
+                <compClass>Reloading.CompReloadable</compClass>
+                <MaxShots>20</MaxShots>
+                <AmmoFilter>
+                    <thingDefs>
+                        <li>VWEHR_SwarmMissileAmmo</li>
+                    </thingDefs>
+                </AmmoFilter>
+                <ItemsPerShot>1</ItemsPerShot>
+                <ReloadTimePerShot>1.2</ReloadTimePerShot>
+                <ReloadSound>ReloadWeapon</ReloadSound>
+            </li>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]/comps</xpath>
+        <value>
+            <li Class="Reloading.CompProperties_Reloadable"><compClass>Reloading.CompReloadable</compClass>
+                <MaxShots>10</MaxShots>
+                <AmmoFilter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </AmmoFilter>
+                <ItemsPerShot>4</ItemsPerShot>
+                <ReloadTimePerShot>3</ReloadTimePerShot>
+                <ReloadSound>ReloadWeapon</ReloadSound>
+            </li>
+        </value>
+    </Operation>
+</Patch>
