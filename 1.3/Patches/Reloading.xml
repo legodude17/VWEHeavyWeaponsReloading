@@ -14,6 +14,10 @@
                 <ItemsPerShot>1</ItemsPerShot>
                 <ReloadTimePerShot>0.5</ReloadTimePerShot>
                 <ReloadSound>ReloadWeapon</ReloadSound>
+                <NewVerbClass>Verb_Shoot</NewVerbClass>
+                <GenerateAmmo>
+                    <Steel>84~168</Steel>
+                </GenerateAmmo>
             </li>
         </value>
     </Operation>
@@ -31,6 +35,10 @@
                 <ItemsPerShot>1</ItemsPerShot>
                 <ReloadTimePerShot>5</ReloadTimePerShot>
                 <ReloadSound>ReloadWeapon</ReloadSound>
+                <NewVerbClass>Verb_Shoot</NewVerbClass>
+                <GenerateAmmo>
+                    <Shell_HighExplosive>5~15</Shell_HighExplosive>
+                </GenerateAmmo>
             </li>
         </value>
     </Operation>
@@ -48,6 +56,10 @@
                 <ItemsPerShot>8</ItemsPerShot>
                 <ReloadTimePerShot>3</ReloadTimePerShot>
                 <ReloadSound>ReloadWeapon</ReloadSound>
+                <NewVerbClass>Verb_Shoot</NewVerbClass>
+                <GenerateAmmo>
+                    <Chemfuel>80~160</Chemfuel>
+                </GenerateAmmo>
             </li>
         </value>
     </Operation>
@@ -65,13 +77,18 @@
                 <ItemsPerShot>1</ItemsPerShot>
                 <ReloadTimePerShot>1.2</ReloadTimePerShot>
                 <ReloadSound>ReloadWeapon</ReloadSound>
+                <NewVerbClass>Verb_Shoot</NewVerbClass>
+                <GenerateAmmo>
+                    <VWEHR_SwarmMissileAmmo>20~40</VWEHR_SwarmMissileAmmo>
+                </GenerateAmmo>
             </li>
         </value>
     </Operation>
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]/comps</xpath>
         <value>
-            <li Class="Reloading.CompProperties_Reloadable"><compClass>Reloading.CompReloadable</compClass>
+            <li Class="Reloading.CompProperties_Reloadable">
+                <compClass>Reloading.CompReloadable</compClass>
                 <MaxShots>10</MaxShots>
                 <AmmoFilter>
                     <thingDefs>
@@ -81,6 +98,10 @@
                 <ItemsPerShot>4</ItemsPerShot>
                 <ReloadTimePerShot>3</ReloadTimePerShot>
                 <ReloadSound>ReloadWeapon</ReloadSound>
+                <NewVerbClass>Verb_Shoot</NewVerbClass>
+                <GenerateAmmo>
+                    <Uranium>40~80</Uranium>
+                </GenerateAmmo>
             </li>
         </value>
     </Operation>

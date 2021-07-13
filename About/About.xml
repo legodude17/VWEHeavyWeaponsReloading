@@ -15,6 +15,12 @@
             <displayName>Vanilla Weapons Expanded - Heavy Weapons</displayName>
             <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2329126791</steamWorkshopUrl>
         </li>
+        <li>
+            <packageId>legodude17.legobricks</packageId>
+            <displayName>LegoBricks</displayName>
+            <steamWorkshopUrl></steamWorkshopUrl>
+            <downloadUrl>https://github.com/legodude17/legobricks</downloadUrl>
+        </li>
     </modDependencies>
     <loadAfter>
         <li>VanillaExpanded.VWEHW</li>
