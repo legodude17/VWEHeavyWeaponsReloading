@@ -39,6 +39,7 @@
                 <GenerateAmmo>
                     <Shell_HighExplosive>5~15</Shell_HighExplosive>
                 </GenerateAmmo>
+                <GenerateBackupWeapon>true</GenerateBackupWeapon>
             </li>
         </value>
     </Operation>
@@ -81,6 +82,7 @@
                 <GenerateAmmo>
                     <VWEHR_SwarmMissileAmmo>20~40</VWEHR_SwarmMissileAmmo>
                 </GenerateAmmo>
+                <GenerateBackupWeapon>true</GenerateBackupWeapon>
             </li>
         </value>
     </Operation>
