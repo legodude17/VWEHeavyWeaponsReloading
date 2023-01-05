@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_Autocannon"]/description</xpath>
+        <value>
+            <description>A self-loading large-bore cannon. Its large-caliber shells do heavy damage over significant ranges. It's slow to aim and it cannot fire at close-up targets. An integrated ammunition factory contributes to the bulk but means it does not need bullets, rather using raw steel.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nThis weapon has a limited magazine and must be reloaded with steel.</description>
+            <descriptionHyperlinks>
+                <ThingDef>Steel</ThingDef>
+            </descriptionHyperlinks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_HandheldMortar"]/description</xpath>
+        <value>
+            <description>Mortar launcher. Lobs bombs over walls. Very inaccurate but long-ranged. It's slow to aim and it cannot fire at close-up targets.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nHas limited magazine of 5 shells and must be reloaded with mortar shells.</description>
+            <descriptionHyperlinks>
+                <ThingDef>Shell_HighExplosive</ThingDef>
+            </descriptionHyperlinks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]/description</xpath>
+        <value>
+            <description>A powerful, military-grade flamer based on mechanoid inferno spewers. It can cover the entire area in front of the user in flames.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nHas a limited fuel tank which must be refilled with chemfuel.</description>
+            <descriptionHyperlinks>
+                <ThingDef>Chemfuel</ThingDef>
+            </descriptionHyperlinks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_SwarmMissileLauncher"]/description</xpath>
+        <value>
+            <description>A rocket launcher that fires ten small-bore explosive missiles that track different targets.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nCan only hold a limited number of missiles, and must be reloaded with swarm missiles after two firing cycles.</description>
+            <descriptionHyperlinks>
+                <ThingDef>VWEHR_SwarmMissileAmmo</ThingDef>
+            </descriptionHyperlinks>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationReplace">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]/description</xpath>
+        <value>
+            <description>A self-loading uranium slug cannon. Its ultra-dense uranium shells can punch through heavy armor. It's more accurate at longer ranges, and can't fire at all close up. An integrated ammunition factory contributes to the bulk but means it does not need bullets, rather using raw uranium.\n\nBeing an extremely heavy weapon, this gun requires a power armor to be effectively used.\n\nHas a limited magazine and must be reloaded with uranium after ten shots.</description>
+            <descriptionHyperlinks>
+                <ThingDef>Uranium</ThingDef>
+            </descriptionHyperlinks>
+        </value>
+    </Operation>
+</Patch>

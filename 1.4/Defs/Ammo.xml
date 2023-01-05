@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="MakeableShellBase">
+        <defName>VWEHR_SwarmMissileAmmo</defName>
+        <label>swarm missile</label>
+        <description>A small guided explosive missile meant for firing in a swarm.</description>
+        <graphicData>
+            <texPath>VWEHR_SwarmMissileAmmo</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <stackLimit>25</stackLimit>
+        <costList>
+            <Steel>10</Steel>
+            <Chemfuel>5</Chemfuel>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
+        </recipeMaker>
+        <thingCategories Inherit="False">
+            <li>RocketAmmo</li>
+        </thingCategories>
+        <tradeTags Inherit="False" />
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>2.9</explosiveRadius>
+                <explosiveDamageType>Bomb</explosiveDamageType>
+                <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingCategoryDef>
+        <defName>RocketAmmo</defName>
+        <label>rockets</label>
+        <parent>Manufactured</parent>
+        <iconPath>VWEHR_SwarmMissileAmmo/VWEHR_SwarmMissileAmmo_a</iconPath>
+    </ThingCategoryDef>
+</Defs>

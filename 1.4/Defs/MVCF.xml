@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Defs>
+    <MVCF.ModDef>
+        <defName>HeavyWeaponReloading</defName>
+        <label>Reloadable Heavy Weapons</label>
+        <description>Vanilla Weapons Expanded - Heavy - Reloading Patch</description>
+        <ActivateFeatures>
+            <li>Reloading</li>
+        </ActivateFeatures>
+    </MVCF.ModDef>
+</Defs>

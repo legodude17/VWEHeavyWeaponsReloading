@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!-- Add labels to verbs-->
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_Autocannon" or defName="VWE_Gun_HandheldMortar" or defName="VWE_Gun_HeavyFlamer" or defName="VWE_Gun_SwarmMissileLauncher" or defName="VWE_Gun_UraniumSlugRifle"]/verbs/li</xpath>
+        <value>
+            <label>Rocket</label>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_Autocannon"]</xpath>
+        <value>
+            <comps>
+                <li Class="MVCF.Comps.CompProperties_VerbProps">
+                    <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                    <verbProps>
+                        <li>
+                            <label>Rocket</label>
+                            <canBeToggled>false</canBeToggled>
+                            <comps>
+                                <li Class="MVCF.Reloading.Comps.VerbCompProperties_Reloadable">
+                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable</compClass>
+                                    <MaxShots>84</MaxShots>
+                                    <AmmoFilter>
+                                        <thingDefs>
+                                            <li>Steel</li>
+                                        </thingDefs>
+                                    </AmmoFilter>
+                                    <ItemsPerShot>1</ItemsPerShot>
+                                    <ReloadTimePerShot>0.5</ReloadTimePerShot>
+                                    <ReloadSound>ReloadWeapon</ReloadSound>
+                                    <NewVerbClass>Verb_Shoot</NewVerbClass>
+                                    <GenerateAmmo>
+                                        <Steel>84~168</Steel>
+                                    </GenerateAmmo>
+                                </li>
+                            </comps>
+                        </li>
+                    </verbProps>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_HandheldMortar"]</xpath>
+        <value>
+            <comps>
+                <li Class="MVCF.Comps.CompProperties_VerbProps">
+                    <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                    <verbProps>
+                        <li>
+                            <label>Rocket</label>
+                            <canBeToggled>false</canBeToggled>
+                            <comps>
+                                <li Class="MVCF.Reloading.Comps.VerbCompProperties_Reloadable">
+                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable</compClass>
+                                    <MaxShots>5</MaxShots>
+                                    <AmmoFilter>
+                                        <categories>
+                                            <li>MortarShells</li>
+                                        </categories>
+                                    </AmmoFilter>
+                                    <ItemsPerShot>1</ItemsPerShot>
+                                    <ReloadTimePerShot>5</ReloadTimePerShot>
+                                    <ReloadSound>ReloadWeapon</ReloadSound>
+                                    <NewVerbClass>Verb_Shoot</NewVerbClass>
+                                    <GenerateAmmo>
+                                        <Shell_HighExplosive>5~15</Shell_HighExplosive>
+                                    </GenerateAmmo>
+                                    <GenerateBackupWeapon>true</GenerateBackupWeapon>
+                                </li>
+                            </comps>
+                        </li>
+                    </verbProps>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_HeavyFlamer"]</xpath>
+        <value>
+            <comps>
+                <li Class="MVCF.Comps.CompProperties_VerbProps">
+                    <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                    <verbProps>
+                        <li>
+                            <label>Rocket</label>
+                            <canBeToggled>false</canBeToggled>
+                            <comps>
+                                <li Class="MVCF.Reloading.Comps.VerbCompProperties_Reloadable">
+                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable</compClass>
+                                    <MaxShots>10</MaxShots>
+                                    <AmmoFilter>
+                                        <thingDefs>
+                                            <li>Chemfuel</li>
+                                        </thingDefs>
+                                    </AmmoFilter>
+                                    <ItemsPerShot>8</ItemsPerShot>
+                                    <ReloadTimePerShot>3</ReloadTimePerShot>
+                                    <ReloadSound>ReloadWeapon</ReloadSound>
+                                    <NewVerbClass>Verb_Shoot</NewVerbClass>
+                                    <GenerateAmmo>
+                                        <Chemfuel>80~160</Chemfuel>
+                                    </GenerateAmmo>
+                                </li>
+                            </comps>
+                        </li>
+                    </verbProps>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_SwarmMissileLauncher"]</xpath>
+        <value>
+            <comps>
+                <li Class="MVCF.Comps.CompProperties_VerbProps">
+                    <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                    <verbProps>
+                        <li>
+                            <label>Rocket</label>
+                            <canBeToggled>false</canBeToggled>
+                            <comps>
+                                <li Class="MVCF.Reloading.Comps.VerbCompProperties_Reloadable">
+                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable</compClass>
+                                    <MaxShots>20</MaxShots>
+                                    <AmmoFilter>
+                                        <thingDefs>
+                                            <li>VWEHR_SwarmMissileAmmo</li>
+                                        </thingDefs>
+                                    </AmmoFilter>
+                                    <ItemsPerShot>1</ItemsPerShot>
+                                    <ReloadTimePerShot>1.2</ReloadTimePerShot>
+                                    <ReloadSound>ReloadWeapon</ReloadSound>
+                                    <NewVerbClass>Verb_Shoot</NewVerbClass>
+                                    <GenerateAmmo>
+                                        <VWEHR_SwarmMissileAmmo>20~40</VWEHR_SwarmMissileAmmo>
+                                    </GenerateAmmo>
+                                    <GenerateBackupWeapon>true</GenerateBackupWeapon>
+                                </li>
+                            </comps>
+                        </li>
+                    </verbProps>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[defName="VWE_Gun_UraniumSlugRifle"]</xpath>
+        <value>
+            <comps>
+                <li Class="MVCF.Comps.CompProperties_VerbProps">
+                    <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                    <verbProps>
+                        <li>
+                            <label>Rocket</label>
+                            <canBeToggled>false</canBeToggled>
+                            <comps>
+                                <li Class="MVCF.Reloading.Comps.VerbCompProperties_Reloadable">
+                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable</compClass>
+                                    <MaxShots>10</MaxShots>
+                                    <AmmoFilter>
+                                        <thingDefs>
+                                            <li>Uranium</li>
+                                        </thingDefs>
+                                    </AmmoFilter>
+                                    <ItemsPerShot>4</ItemsPerShot>
+                                    <ReloadTimePerShot>3</ReloadTimePerShot>
+                                    <ReloadSound>ReloadWeapon</ReloadSound>
+                                    <NewVerbClass>Verb_Shoot</NewVerbClass>
+                                    <GenerateAmmo>
+                                        <Uranium>40~80</Uranium>
+                                    </GenerateAmmo>
+                                </li>
+                            </comps>
+                        </li>
+                    </verbProps>
+                </li>
+            </comps>
+        </value>
+    </Operation>
+</Patch>
