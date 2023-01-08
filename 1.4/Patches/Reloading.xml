@@ -53,7 +53,7 @@
                             <canBeToggled>false</canBeToggled>
                             <comps>
                                 <li Class="MVCF.Reloading.Comps.VerbCompProperties_Reloadable">
-                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable</compClass>
+                                    <compClass>MVCF.Reloading.Comps.VerbComp_Reloadable_ChangeableAmmo</compClass>
                                     <MaxShots>5</MaxShots>
                                     <AmmoFilter>
                                         <categories>
